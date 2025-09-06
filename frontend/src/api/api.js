@@ -1,8 +1,16 @@
 import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { API_URL, PUBLIC_API_URL } from "../config";
 
+// Private API (giriş gerekli)
 const api = axios.create({
-  baseURL: "http://10.0.2.2:3000/api",
+  baseURL: `${API_URL}/api`,
+  timeout: 5000,
+});
+
+// Public API (herkes erişebilir)
+export const publicApi = axios.create({
+  baseURL: `${PUBLIC_API_URL}/api/public`,
   timeout: 5000,
 });
 
